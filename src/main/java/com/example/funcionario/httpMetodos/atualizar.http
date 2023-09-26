@@ -1,0 +1,8 @@
+PATCH http://localhost:8080/funcionarios/4
+Content-Type: application/json
+
+{
+  "cargo": "Gerente de projetos",
+  "salario": 2000,
+  "departamento": "vendas"
+}

@@ -1,0 +1,10 @@
+POST http://localhost:8080/funcionarios
+Content-Type: application/json
+
+{
+  "nome": "teste",
+  "cargo": "testando cargo",
+  "data_admissao": "2014-07-12",
+  "salario": 3000,
+  "departamento": "amogus"
+}
