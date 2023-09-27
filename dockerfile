@@ -1,7 +1,13 @@
-FROM jenkins/jenkins:latest-jdk11
+FROM maven:3.8-openjdk-17 AS build
 
-USER root
+WORKDIR /app
+COPY . .
 
-RUN apt-get install
+RUN mvn clean package -DskipTests
 
-USER jenkins
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+COPY --from=build /app/target/*.jar mhcdd.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","mhcdd.jar"]
